@@ -1,21 +1,24 @@
 #include <iostream>
+# define SIZE 25
 using namespace std;
-int  main()
+int sum(int a[],int n)
 {
-	cout<<"Number of inputs in an array"<<endl;
-	int n;
-	cin>>n;
-	int input[100];
-		for(int i=0;i<n;i++)
-		{
-			cin>>input[i];
-		}
-		int sum =0;
-		for(int i=0;i<n;i++)
-		{
-			sum=sum+input[i];
-			cout<<input[i]<<endl;
-		}
-		cout<<sum;
+	if(n==0)
 		return 0;
+	else{
+		return a[n]+sum(a,n-1);
+	}
+
+}
+int main(){
+	int n;
+	int a[SIZE];
+	cin>>n;
+	for(int i=0;i<n;i++)
+	{
+		cin>>a[i];
+	}
+	int sumarray=sum(a,n-1);
+	cout<<sumarray;
+
 }
